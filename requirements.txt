@@ -1,5 +1,6 @@
 Flask
 Flask-Mail
-Werkzeug
 tensorflow
 numpy
+pickle5
+werkzeug
