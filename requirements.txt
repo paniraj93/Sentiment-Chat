@@ -4,3 +4,4 @@ tensorflow
 numpy
 pickle5
 werkzeug
+gunicorn
