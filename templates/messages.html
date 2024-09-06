@@ -1,0 +1,7 @@
+{% for message in messages %}
+    <div class="message {% if message.sender == session.username %}sent{% else %}received{% endif %}">
+        <strong>{{ message.sender }}:</strong>
+        <p>{{ message.message }}</p>
+        <small>{{ message.timestamp }} | Sentiment: {{ message.sentiment }}</small>
+    </div>
+{% endfor %}

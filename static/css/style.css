@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashes li {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
+form {
+    max-width: 400px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#chat-container {
+    display: flex;
+    height: 70vh;
+}
+
+#friends-list {
+    width: 30%;
+    border-right: 1px solid #ccc;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+#chat-messages {
+    width: 70%;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+#message-form {
+    display: flex;
+    margin-top: 1rem;
+}
+
+#message-form input {
+    flex-grow: 1;
+    margin-right: 0.5rem;
+}
+#chat-container {
+    display: flex;
+    height: 70vh;
+}
+
+#friends-list {
+    width: 30%;
+    border-right: 1px solid #ccc;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+#chat-area {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+#chat-messages {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+#message-form {
+    display: flex;
+    padding: 1rem;
+}
+
+#message-form input[type="text"] {
+    flex-grow: 1;
+    margin-right: 0.5rem;
+}
+
+.message {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.message.sent {
+    background-color: #e6f3ff;
+    text-align: right;
+}
+
+.message.received {
+    background-color: #f0f0f0;
+}
+
+.message p {
+    margin: 0.25rem 0;
+}
+
+.message small {
+    font-size: 0.8em;
+    color: #666;
+}

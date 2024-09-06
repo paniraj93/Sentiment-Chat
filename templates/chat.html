@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Chat</h1>
+    <div id="chat-container">
+        <div id="friends-list">
+            <h2>Friends</h2>
+            <ul>
+                {% for friend in friends %}
+                    <li><a href="#" onclick="loadChat('{{ friend.username }}')">{{ friend.username }} ({{ friend.relationship }})</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="chat-area">
+            <div id="chat-messages"></div>
+            <form id="message-form" onsubmit="return sendMessage()">
+                <input type="text" id="message" name="message" required>
+                <input type="hidden" id="recipient" name="recipient">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function loadChat(friendUsername) {
+    document.getElementById('recipient').value = friendUsername;
+    fetch(`/get_messages/${friendUsername}`)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('chat-messages').innerHTML = html;
+        });
+}
+
+function sendMessage() {
+    const form = document.getElementById('message-form');
+    const formData = new FormData(form);
+
+    fetch('/send_message', {
+        method: 'POST',
+        body: formData
+    }).then(() => {
+        form.reset();
+        loadChat(document.getElementById('recipient').value);
+    });
+
+    return false;
+}
+</script>
+{% endblock %}

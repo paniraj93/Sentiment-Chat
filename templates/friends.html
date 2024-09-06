@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Friends</h1>
+    <h2>Friend Requests</h2>
+    <ul>
+        {% for request in friend_requests %}
+            <li>
+                {{ request.username }} ({{ request.relationship }})
+                <form method="POST" style="display: inline;">
+                    <input type="hidden" name="action" value="accept_request">
+                    <input type="hidden" name="friend_username" value="{{ request.username }}">
+                    <button type="submit">Accept</button>
+                </form>
+                <form method="POST" style="display: inline;">
+                    <input type="hidden" name="action" value="reject_request">
+                    <input type="hidden" name="friend_username" value="{{ request.username }}">
+                    <button type="submit">Reject</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Your Friends</h2>
+    <ul>
+        {% for friend in friends %}
+            <li>{{ friend.username }} ({{ friend.relationship }})</li>
+        {% endfor %}
+    </ul>
+    <h2>Send Friend Request</h2>
+    <form method="POST">
+        <input type="hidden" name="action" value="send_request">
+        <label for="friend_username">Username:</label>
+        <input type="text" id="friend_username" name="friend_username" required>
+        <label for="relationship">Relationship:</label>
+        <select id="relationship" name="relationship" required>
+            <option value="friend">Friend</option>
+            <option value="family">Family</option>
+            <option value="college">College</option>
+        </select>
+        <button type="submit">Send Request</button>
+    </form>
+{% endblock %}
