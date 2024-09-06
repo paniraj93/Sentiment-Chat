@@ -2,6 +2,6 @@ Flask
 Flask-Mail
 tensorflow
 numpy
-pickle5
+pickle
 werkzeug
 gunicorn
